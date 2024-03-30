@@ -1,5 +1,7 @@
 # Web2App
-
+## Requirements
+- NodeJS 21.7.1+ & NPM 10.5.0+
+- Python 3.12.2+ & Pip 24+
 ## Description
 Web2App is a tool that converts a website into a desktop application. It allows you to create standalone applications for your favorite websites, enabling easier access and a more integrated experience.
 
