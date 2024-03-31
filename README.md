@@ -24,6 +24,7 @@ Once the repository is initialized, you can convert a website into a desktop app
 4. Follow the on-screen instructions to customize the application settings.
 5. After completing the setup, the desktop application for the specified website will be generated.
 6. Once generated the web app shall run. Once it is ran, follow the on-screen instructions to have it built in a valid application for your operating system.
+7. To navigate between pages on your web app (Mac or Windows) press Control Shift and the Left or Right arrow key.
 
 ### Common problems
 1. Error during building: [ERR_ELECTRON_BUILDER_CANNOT_EXECUTE](https://github.com/electron-userland/electron-builder/issues/5134)
