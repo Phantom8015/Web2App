@@ -25,6 +25,14 @@ Once the repository is initialized, you can convert a website into a desktop app
 5. After completing the setup, the desktop application for the specified website will be generated.
 6. Once generated the web app shall run. Once it is ran, follow the on-screen instructions to have it built in a valid application for your operating system.
 
+### Common problems
+1. Error during building: [ERR_ELECTRON_BUILDER_CANNOT_EXECUTE](https://github.com/electron-userland/electron-builder/issues/5134)
+2. Default electron icon after building. Caused by errors in getting your website's icon.
+3. Code isn't signed. A common problem faced when distributing your app.
+4. Any other problems, please create an issue in the issues tab. 
+  
+  
+  
 ## License
 This project is licensed under the [MIT License](LICENSE).
 

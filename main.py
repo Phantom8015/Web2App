@@ -73,7 +73,7 @@ def main(url):
         except Exception as e:
             print(e)
             
-        print("\n\nThe desktop app for that website is about to run. Do not end the script. Test the app, then run ``npx electron-builder build``` in your terminal. \n\n")
+        print("\n\nThe desktop app for that website is about to run. Do not end the script. Test the app, then run ```npx electron-builder build``` in your terminal. \n\n")
         time.sleep(5)
         os.system("npm start")
     else:
