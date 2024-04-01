@@ -3,6 +3,8 @@ import time
 import ssl
 import json
 import logging
+import subprocess
+import platform
 from urllib.request import urlopen
 from bs4 import BeautifulSoup
 from PIL import Image
@@ -38,10 +40,13 @@ def main(url):
             else:
                 name = input("Enter the name of the app: ")
                 if name.strip() == "":
+                    name = "WebApp"
                     raise ValueError("Please enter a valid name!")
                 elif name.isalpha() == False:
+                    name = "WebApp"
                     raise ValueError("Please enter a valid name!")
                 elif name.isdigit() == True:
+                    name = "WebApp"
                     raise ValueError("Please enter a valid name!")
                 else:
                     pass
@@ -73,9 +78,22 @@ def main(url):
         except Exception as e:
             print(e)
             
-        print("\n\nThe desktop app for that website is about to run. Do not end the script. Test the app, then run ```npx electron-builder build``` in your terminal. \n\n")
+        print("\n\nThe desktop app for that website is about to run. Do not end the script.\n\n")
         time.sleep(5)
-        os.system("npm start")
+        subprocess.Popen(["npm", "start"])
+        time.sleep(5)
+        yn = input("Would you like to build the app now? (y/n): ")
+        if yn.lower() == "y":
+            if platform.system() == "Windows":
+                os.system("npm run build-win")
+            elif platform.system() == "Darwin":
+                os.system("npm run build-mac")
+            return "The app has been built. Check the 'dist' folder for the installer."
+        
+        else:  
+            return "To build, run ```npm run build-win``` for Windows and ```npm run build-mac``` for MacOS."
+
+        
     else:
         return "Please enter a valid URL!"
 
