@@ -1,9 +1,7 @@
 import os
-import time
 import ssl
 import json
 import logging
-import subprocess
 import platform
 from urllib.request import urlopen
 from bs4 import BeautifulSoup
@@ -79,9 +77,7 @@ def main(url):
             print(e)
             
         print("\n\nThe desktop app for that website is about to run. Do not end the script.\n\n")
-        time.sleep(5)
-        subprocess.Popen(["npm", "start"])
-        time.sleep(5)
+        os.system("npm start")
         yn = input("Would you like to build the app now? (y/n): ")
         if yn.lower() == "y":
             if platform.system() == "Windows":
