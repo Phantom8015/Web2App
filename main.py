@@ -1,14 +1,11 @@
 import os
-import time
 import ssl
 import json
 import logging
 import platform
 from urllib.request import urlopen
 from bs4 import BeautifulSoup
-import subprocess
 from PIL import Image
-from io import BytesIO
 
 
 logging.basicConfig(level=logging.ERROR)
@@ -68,7 +65,7 @@ def main(url):
             try:
                 icon = urlopen(icon_url)
                 with open("icon.ico", "wb") as f:
-                    Image.open(BytesIO(icon.read())).resize((500, 500)).save("icon.ico")
+                    f.write(icon.read())
                 img = Image.open("icon.ico")
                 img.save("icon.png", "PNG")
                 imgu = Image.open("icon.png")
@@ -80,10 +77,7 @@ def main(url):
             print(e)
             
         print("\n\nThe desktop app for that website is about to run. Do not end the script.\n\n")
-        if platform.system() == "Windows":
-            os.system("npm start")
-        elif platform.system() == "Darwin":
-            subprocess.Popen(["npm", "start"])
+        os.system("npm start")
         yn = input("Would you like to build the app now? (y/n): ")
         if yn.lower() == "y":
             if platform.system() == "Windows":
