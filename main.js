@@ -19,9 +19,9 @@ function createWindow() {
             win.webContents.goForward();
         }
     });
-    win.webContents.on('new-window', (event, url) => {
-        event.preventDefault();
+    win.webContents.setWindowOpenHandler(({ url }) => {
         win.loadURL(url);
+        return { action: 'deny' };
     });
 
     win.loadURL(p.url);
