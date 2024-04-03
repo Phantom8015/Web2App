@@ -3,6 +3,7 @@ import ssl
 import json
 import logging
 import platform
+import favicon
 from urllib.request import urlopen
 from bs4 import BeautifulSoup
 from PIL import Image
@@ -62,12 +63,22 @@ def main(url):
                 icon_url = icon_link['href']
             else:
                 icon_url = "https://static-00.iconduck.com/assets.00/electron-icon-472x512-8swdbwbh.png"
+                print("Failed to retrieve icon. Trying method 2, if this fails, the default icon will be used.")
+                icons = favicon.get(url)
+                icon_url = icons[0].url
+                if urlopen(icon_url).status != 200:
+                    icon_url = "https://static-00.iconduck.com/assets.00/electron-icon-472x512-8swdbwbh.png"
+                    print("Failed to retrieve icon. Default icon will be used.")
+                else:
+                    print("Icon retrieved successfully.")
             try:
                 icon = urlopen(icon_url)
                 with open("icon.ico", "wb") as f:
                     f.write(icon.read())
                 img = Image.open("icon.ico")
                 img.save("icon.png", "PNG")
+                img = Image.open("icon.ico")
+                img.resize((256, 256)).save("icon.ico")
                 imgu = Image.open("icon.png")
                 imgu.resize((512, 512)).save("icon.png")
 

@@ -3,3 +3,6 @@ other
 .DS_Store
 package-lock.json
 testing
+dist
+icon.ico
+icon.png

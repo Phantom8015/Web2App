@@ -1,5 +1,5 @@
 {
-    "name": "web2app",
+    "name": "Libby",
     "version": "1.0.0",
     "main": "main.js",
     "scripts": {
@@ -14,7 +14,7 @@
         "electron": "^29.1.3",
         "electron-builder": "^24.13.3"
     },
-    "url": "web2app",
+    "url": "https://libbyapp.com",
     "build": {
         "appId": "com.web2app"
     },
