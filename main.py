@@ -76,6 +76,7 @@ def main(url):
                 with open("icon.ico", "wb") as f:
                     f.write(icon.read())
                 img = Image.open("icon.ico")
+                img.save("icon.ico", "ICO")
                 img.save("icon.png", "PNG")
                 img = Image.open("icon.ico")
                 img.resize((256, 256)).save("icon.ico")
